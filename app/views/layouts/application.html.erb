@@ -10,15 +10,24 @@
   </head>
 
   <body>
-    <div>
-      <%= flash[:notice] %>
-    </div>
-    <div>
-      <a href="/">Home</a>
-      <%#= button_to "Logout", "/sessions/logout", method: :delete %>
-      <a href="/sessions/new">Login</a>
-      <a href="/users/new">Signup</a>
-    </div>
+    <p>
+      <% @current_user = User.find(session["user_id"])%>
+      <%if @current_user%>
+        Welcome.
+      <%else%>
+          <a href="/">Home</a>
+          <a href="/sessions/new">Login</a>
+          <a href="/users/new">Signup</a>
+          <%#= button_to "Logout", "/sessions/logout", method: :delete %>
+      <%end%>
+    </p>
+
+  <p>
+      <div>
+        <%= flash[:notice] %>
+      </div>
+    </p>
+
 
     <%= yield %>
   </body>
