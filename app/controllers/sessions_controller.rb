@@ -20,6 +20,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session["user_id"] = nil
+    flas[:notice] = "Goodbye."
+    redirect_to "/session/new"
   end
 end
   

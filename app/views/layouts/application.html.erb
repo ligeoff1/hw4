@@ -13,11 +13,12 @@
     <p>
       <%if @current_user%>
         Welcome.
+        <%= button_to "Logout", "/sessions/logout", method: :delete %>
+
       <%else%>
           <a href="/">Home</a>
           <a href="/sessions/new">Login</a>
           <a href="/users/new">Signup</a>
-          <%#= button_to "Logout", "/sessions/logout", method: :delete %>
       <%end%>
     </p>
 
