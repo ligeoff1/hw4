@@ -13,10 +13,12 @@
     <%= form.label "posted_on" %>
     <%= form.date_field "posted_on" %>
   </p>
-  <p>
-      <%= form.label "image" %>
-      <%= form.text_field "image" %>
-  </p>
+
+  <div class="mb-3">
+    <%= form.label "uploaded_image", class: "form-label" %>
+    <%= form.file_field "uploaded_image", accept: "image/jpg, image/jpeg, image/png",class: "form-control"%>
+  </div>
+
   <p>
     <%= form.submit %>
   </p>
